@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/simple-cooking-alarm/static/js/main.9434eade.chunk.js",
-    "main.js.map": "/simple-cooking-alarm/static/js/main.9434eade.chunk.js.map",
+    "main.js": "/simple-cooking-alarm/static/js/main.623cf95a.chunk.js",
+    "main.js.map": "/simple-cooking-alarm/static/js/main.623cf95a.chunk.js.map",
     "runtime-main.js": "/simple-cooking-alarm/static/js/runtime-main.cca2a9e3.js",
     "runtime-main.js.map": "/simple-cooking-alarm/static/js/runtime-main.cca2a9e3.js.map",
-    "static/js/2.8de7c49b.chunk.js": "/simple-cooking-alarm/static/js/2.8de7c49b.chunk.js",
-    "static/js/2.8de7c49b.chunk.js.map": "/simple-cooking-alarm/static/js/2.8de7c49b.chunk.js.map",
+    "static/js/2.29b2bd54.chunk.js": "/simple-cooking-alarm/static/js/2.29b2bd54.chunk.js",
+    "static/js/2.29b2bd54.chunk.js.map": "/simple-cooking-alarm/static/js/2.29b2bd54.chunk.js.map",
     "index.html": "/simple-cooking-alarm/index.html",
-    "static/js/2.8de7c49b.chunk.js.LICENSE.txt": "/simple-cooking-alarm/static/js/2.8de7c49b.chunk.js.LICENSE.txt"
+    "static/js/2.29b2bd54.chunk.js.LICENSE.txt": "/simple-cooking-alarm/static/js/2.29b2bd54.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cca2a9e3.js",
-    "static/js/2.8de7c49b.chunk.js",
-    "static/js/main.9434eade.chunk.js"
+    "static/js/2.29b2bd54.chunk.js",
+    "static/js/main.623cf95a.chunk.js"
   ]
 }
