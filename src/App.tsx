@@ -6,10 +6,9 @@ import {
     CardContent,
     IconButton,
     Typography,
-    Input,
     FormControl,
     Fade,
-    ThemeProvider
+    ThemeProvider, TextField
 } from '@material-ui/core'
 import {useStyles, theme, fixWarn} from "./style";
 import {timeToNumber, numberToTime} from './Helper'
@@ -76,23 +75,27 @@ const App = () => {
                                     <FormControl className={classes.form} component="form">
 
                                         <Fade in={!click} timeout={800}>
-                                            <Input type="text" value={time}
-                                                   inputComponent={MaskedInput}
-                                                   className={classes.input}
-                                                   onChange={(e: any) => {
-                                                       let timeFormat = e.target.value;
-                                                       setTime(timeFormat);
-                                                   }}/>
+                                            <div>
+                                                <TextField type="text"
+                                                           value={time}
+                                                           helperText="Set the timer"
+                                                           InputProps={{inputComponent: MaskedInput}}
+                                                           className={classes.input}
+                                                           onChange={(e: any) => {
+                                                               let timeFormat = e.target.value;
+                                                               setTime(timeFormat);
+                                                           }}/>
+                                            </div>
                                         </Fade>
-
                                     </FormControl>
                                     <Box>
-                                        <IconButton aria-label="play-pause" onClick={handlePlay}>
-                                            {click ? <PauseCircleOutlineIcon className={classes.icon}/> :
-                                                <PlayCircleOutlineIcon className={classes.icon}/>}
+                                        <IconButton aria-label="play-pause" className={classes.icon}
+                                                    onClick={handlePlay}>
+                                            {click ? <PauseCircleOutlineIcon/> :
+                                                <PlayCircleOutlineIcon/>}
                                         </IconButton>
-                                        <IconButton aria-label="reset" onClick={handleReset}>
-                                            <RotateLeftIcon className={classes.icon}/>
+                                        <IconButton aria-label="reset" className={classes.icon} onClick={handleReset}>
+                                            <RotateLeftIcon/>
                                         </IconButton>
                                     </Box>
                                 </Box>
