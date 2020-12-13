@@ -1,4 +1,11 @@
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, createMuiTheme, responsiveFontSizes, unstable_createMuiStrictModeTheme} from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+let fixWarn = unstable_createMuiStrictModeTheme();
+theme = responsiveFontSizes(theme, {factor: 3});
+export {theme,fixWarn};
+
+
 
 export const useStyles = makeStyles({
     root: {
@@ -7,11 +14,11 @@ export const useStyles = makeStyles({
     },
     heading:{
         color: "#e5e4e4",
-        marginBottom: "50px"
+        marginBottom: "3rem"
     },
     timer:{
         background: "#808080",
-        padding: "20px 50px",
+        padding: "2rem 3.2rem",
         borderRadius: "8px"
     },
     card: {
@@ -19,16 +26,16 @@ export const useStyles = makeStyles({
         borderRadius: 20,
     },
     form:{
-        margin: "30px auto 20px"
+        margin: "2rem auto 1.5rem"
     },
     input:{
-        height: 50,
-        fontSize: 30,
-        width:80,
+        height: "clamp(2.5rem,4vh,4rem)",
+        fontSize: "clamp(1.5rem,3vw,2rem)",
+        width:"clamp(4rem,8vw,5.2rem)",
 
     },
     icon:{
-        fontSize: 50,
+        fontSize: "clamp(2rem, 5vw,3rem)",
         color: "#000"
     }
 });
