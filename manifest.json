@@ -1,0 +1,8 @@
+{
+  "short_name": "Simple Cooking Alarm",
+  "name": "Simple Cooking Alarm React App",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
