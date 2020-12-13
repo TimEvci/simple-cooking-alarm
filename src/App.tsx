@@ -1,21 +1,12 @@
 import React, {useRef, useState} from 'react';
-import {CssBaseline, Box, Card, CardContent, IconButton, Typography, Input} from '@material-ui/core'
-import {makeStyles} from '@material-ui/core/styles';
+import {CssBaseline, Box, Card, CardContent, IconButton, Typography, Input, FormControl} from '@material-ui/core'
+import {useStyles} from "./style";
+import {timeToNumber, numberToTime} from './Helper'
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
+import MaskedInput from "./components/MaskedInput";
 
-//Init Styles
-const useStyles = makeStyles({
-    root: {
-        background: "#032b43",
-        height: "100vh"
-    },
-    card: {
-        minWidth: 600,
-        minHeight: 400,
-    }
-});
 
 const App = () => {
     //Necessary to clear the interval
@@ -25,21 +16,6 @@ const App = () => {
     //Set Initial States Using Hooks
     const [time, setTime] = useState("00:00")
     const [click, setClick] = useState(false)
-
-
-    //Convert time-string input to number
-    const timeToNumber = (time: string) => {
-        let convTime: Array<string> = time.split(":");
-        let minutes: number = parseInt(convTime[0], 10);
-        let seconds: number = convTime[1] ? parseInt(convTime[1], 10) : 0;
-        return minutes * 60 + seconds;
-    }
-    //Convert number to time-string for re-render
-    const numberToTime = (num: number) => {
-        let seconds: number = num % 60;
-        let minutes: number = Math.floor(num / 60);
-        return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`
-    }
 
     let totalSeconds = timeToNumber(time)
     const handlePlay = () => {
@@ -59,7 +35,6 @@ const App = () => {
             setClick(false)
             clearInterval(interval.current)
         }
-
     }
 
     const handleReset = () => {
@@ -76,23 +51,33 @@ const App = () => {
                  alignItems="center"
                  component="section"
                  className={classes.root}>
+                <Typography variant="h3" component="h1" className={classes.heading}>Simple Cooking Alarm</Typography>
                 <Card className={classes.card} component="section">
                     <CardContent>
-                        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" m={5}>
-                            <Typography variant="h3" component="h1">Simple Cooking Alarm</Typography>
-                            <Typography variant="h1" component="h2">{time}</Typography>
-                            <Box display="flex" justifyContent="center" alignItems="center" m={4}>
-                                <Input type="time" value={time}
+                        <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" m={3}>
+                            <Typography variant="h1" component="h2" className={classes.timer}>
+                                {time === '' ? "00:00" : time}
+                            </Typography>
+                            <FormControl className={classes.form} component="form">
+                                <Input type="text" value={time}
+                                       inputComponent={MaskedInput}
+                                       className={classes.input}
                                        onChange={(e: any) => {
-                                           setTime(e.target.value);
+                                           let timeFormat = e.target.value;
+                                           // timeFormat = timeFormat.replace(/..\B/g, '$&:')
+                                           setTime(timeFormat);
                                        }}
                                 />
-                                <IconButton aria-label="play-pause" onClick={handlePlay} type="submit">
-                                    {click ? <PauseCircleOutlineIcon fontSize="large"/> :
-                                        <PlayCircleOutlineIcon fontSize="large"/>}
+                            </FormControl>
+
+
+                            <Box>
+                                <IconButton aria-label="play-pause" onClick={handlePlay}>
+                                    {click ? <PauseCircleOutlineIcon className={classes.icon}/> :
+                                        <PlayCircleOutlineIcon className={classes.icon}/>}
                                 </IconButton>
                                 <IconButton aria-label="reset" onClick={handleReset}>
-                                    <RotateLeftIcon fontSize="large"/>
+                                    <RotateLeftIcon className={classes.icon}/>
                                 </IconButton>
                             </Box>
                         </Box>
