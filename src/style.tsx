@@ -25,13 +25,11 @@ let theme = createMuiTheme({
 
     }
 });
+
 let fixWarn = unstable_createMuiStrictModeTheme();
 theme = responsiveFontSizes(theme, {factor: 3});
-export {theme,fixWarn};
 
-
-
-export const useStyles = makeStyles({
+const useStyles = makeStyles({
     root: {
         background: "#032b43",
         height: "100vh"
@@ -51,12 +49,7 @@ export const useStyles = makeStyles({
     },
     form:{
         margin: "2rem auto 1.5rem"
-    },
-    input:{
-
-
-    },
-    icon:{
-
     }
 });
+
+export {useStyles,theme,fixWarn};
